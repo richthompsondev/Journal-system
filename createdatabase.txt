@@ -1,0 +1,137 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost:8889
+-- Generation Time: Jan 11, 2022 at 09:15 PM
+-- Server version: 5.7.34
+-- PHP Version: 7.4.21
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `Journal`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointment`
+--
+CREATE DATABASE IF NOT EXISTS `Journal` ;
+USE `Journal`;
+
+CREATE TABLE `appointment` (
+  `appointment_id` int(225) NOT NULL,
+  `type` varchar(225) DEFAULT NULL,
+  `appointment_date` date DEFAULT NULL,
+  `appointment_time` time DEFAULT NULL,
+  `user_id` int(225) DEFAULT NULL,
+  `purpose` varchar(225) DEFAULT NULL,
+  `completed` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `appointment`
+--
+
+INSERT INTO `appointment` (`appointment_id`, `type`, `appointment_date`, `appointment_time`, `user_id`, `purpose`, `completed`) VALUES
+(4, 'SFFSS', '2022-01-12', '04:02:00', 11, ',MD,FFS', 'Yes'),
+(5, 'keno', '2022-01-20', '03:03:00', 11, ',outing', 'Yes'),
+(10, 'mcmdmd', '2022-01-07', '23:33:00', 11, 'dasds', 'Yes'),
+(11, 'ozgur2', '2022-01-12', '13:00:00', 11, ',admission', 'No'),
+(12, 'singer', '2022-01-19', '02:03:00', 17, ',jean', 'No'),
+(13, 'bursary discussion', '2022-01-13', '14:30:00', 18, ',School fees discussion', 'Yes'),
+(14, 'mano', '2022-01-11', '12:03:00', 18, ',mdmdc', 'No'),
+(15, 'appointment', '2022-01-11', '12:03:00', 19, ',manna', 'Yes'),
+(16, 'bursary discussion', '2022-01-11', '22:30:00', 19, ',school fees discussion', 'No');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(225) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `password`) VALUES
+(4, 'mano12', '3ebf7a087f79ad7fb361e356b99d3f4a7b6916d7cb8e950be6e2bcb971daa6c6'),
+(6, 'testing', 'cf80cd8aed482d5d1527d7dc72fceff84e6326592848447d2dc0b0e87dfc9a90'),
+(7, 'david', 'a4542d6923b27335d303b48bb35b14ae961310ae18206c86c8fa72ad4763dd22'),
+(8, 'ddsdds', '71385cfef84f3584526c1c7f2afb70c1de9340093736c53e52be6c650624c0c2'),
+(9, 'dddd', 'c02d8e6211ef7dc5af42085cbb323a122b76905ac098467ea1f85465ec14429d'),
+(10, 'on rue', 'c3999e1e6d4d7dc325a919c4da129746343bf8b136497053a5ba9f8230b6cd14'),
+(11, 'oghenemano1', '3ebf7a087f79ad7fb361e356b99d3f4a7b6916d7cb8e950be6e2bcb971daa6c6'),
+(12, 'jane', '81f8f6dde88365f3928796ec7aa53f72820b06db8664f5fe76a7eb13e24546a2'),
+(13, 'faith', '2b93b177b55445f513d73ff1f0f30376d6ec181bcc1bd5cd19cccb970f4ee0d2'),
+(14, 'oghenemano', '3ebf7a087f79ad7fb361e356b99d3f4a7b6916d7cb8e950be6e2bcb971daa6c6'),
+(15, 'Esther', '3ebf7a087f79ad7fb361e356b99d3f4a7b6916d7cb8e950be6e2bcb971daa6c6'),
+(16, 'Jane', '4f23798d92708359b734a18172c9c864f1d48044a754115a0d4b843bca3a5332'),
+(17, 'Sam', 'e96e02d8e47f2a7c03be5117b3ed175c52aa30fb22028cf9c96f261563577605'),
+(18, 'kenodedone', '067d8b657b1b3c591c2a1e816370be95a4fff975ceafa2b261194f4b340852fc'),
+(19, 'utomudo', '03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `appointment`
+--
+ALTER TABLE `appointment`
+  ADD PRIMARY KEY (`appointment_id`),
+  ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `appointment`
+--
+ALTER TABLE `appointment`
+  MODIFY `appointment_id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(225) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `appointment`
+--
+ALTER TABLE `appointment`
+  ADD CONSTRAINT `appointment_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+

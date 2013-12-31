@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+  <script src="mystyle.js" defer></script>
+  <script  src="validate.js" ></script>
+  <!-- i got this from w3 school to add the icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="styles.css" rel="stylesheet">
+  <title>Tabs</title>
+</head>
+<body>
+  <div class ="nav">
+    
+    <a href ="index.html"><i class="fa fa-home" class="myicon"></i>&nbsp;  Home</a>
+    <a  class = "space" href ="login.php"><i class="fas fa-user-alt" class="myicon"></i> Sign In</a>
+  </div>
+  <div class="make">
+  <ul class="tabs">
+    <li data-tab-target="#event" class="active tab">Add events</li>
+    <li data-tab-target="#appointment" class="tab">Appointments</li>
+    <li data-tab-target="#Task" class="tab">Task</li>
+  </ul>
+</div>
+
+  <div class="tab-content">
+    <div id="event" data-tab-content class="active">
+
+      <input type="text" class ="designme" placeholder="appointment type"/><br>
+
+       <input type="date" class="designme"/><br>
+       <input type="time" class="designme" /> <br>
+       <input type="text" class="designme" placeholder="purpose" /><br>
+       <div class="designsubmit">
+       <a href="login.php" >submit</a>
+      </div>
+       <br>
+       <br>
+       <br>
+
+     
+    </div>
+    <div id="appointment" data-tab-content>
+     
+      <p>no appointment currently</p>
+    </div>
+    <div id="Task" data-tab-content>
+
+      <p>no current task</p>
+    </div>
+  </div>
+  <div class="makefooter">
+    <p>@Oghenemano omogha 21813677</p>
+
+  </div>
+</body>
+</html>
